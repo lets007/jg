@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <img id="bolinha" src="img/bolinha.jpeg" alt="Bolinha">
+    <img id="bolinha" src="img/bolinha.jpeg" alt="bolinha">
 
     <script>
         const bolinha = document.getElementById('bolinha');
@@ -40,5 +40,30 @@
             bolinha.style.top = y + 'px';
         });
     </script>
+
+
+ <img id="gelo" src="img/gelo.jpg" alt="gelo">
+
+ <script>
+        const gelo = document.getElementById('gelo');
+        let x = window.innerWidth / 2;
+        let y = window.innerHeight / 2;
+        const velocidade = 5;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'w') y -= velocidade;
+            if (e.key === 's') y += velocidade;
+            if (e.key === 'a') x -= velocidade;
+            if (e.key === 'd') x += velocidade;
+
+            // Limita dentro da tela
+            x = Math.max(25, Math.min(x, window.innerWidth - 25));
+            y = Math.max(25, Math.min(y, window.innerHeight - 25));
+
+            gelo.style.left = x + 'px';
+            gelo.style.top = y + 'px';
+        });
+    </script>
+
 </body>
 </html>
